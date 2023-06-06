@@ -36,12 +36,46 @@ main {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   place-content: center;
 
-  gap: 2em;
+  gap: 1.5em;
 
-  max-width: 800px;
+  max-width: 1000px;
 
   color: white;
+
+  font-family: 'Rubik', sans-serif;
+
+  font-size: 18px;
+
 }
+
+/*///////// Typography /////////////*/
+
+h1{
+  font-weight: 300;
+  font-size: 2em;
+}
+
+h2{
+  font-weight: 400;
+  font-size: 1em;
+}
+
+h3 {
+  font-size: 2.5em;
+  font-weight: 300;
+
+  padding: .6em 0 .25em 0;
+}
+
+p {
+  font-size: .8em;
+  font-weight: 300;
+  color: var(--color-pale-blue);
+}
+
+
+
+/*/////////////////////////////////*/
 
 .profile-main {
   grid-row: span 2;
@@ -50,22 +84,61 @@ main {
 }
 
 .profile-inner {
-  background-color: var(--color-desaturated-blue);
+  background-color: var(--color-blue);
+  padding: 1.5em;
+
+  height: 65%;
+  border-radius: 15px;
 }
+
 
 .profile-img {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
+
+  border: solid white;
+  border-radius: 50%;
+
+  margin-bottom: 1.5em;
 }
 
+.timeframe {
+  display: flex;
+  flex-direction: column;
+
+  color: var(--color-desaturated-blue);
+
+  padding: 1.5em 1.5em;
+}
+
+.timeframe > label {
+  padding: .5em 0;
+  font-size: .9em;
+}
+
+.timeframe > label:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.timeframe > input {
+  display: none;
+}
+
+.timeframe > input:checked + label {
+  color: white;
+}
+
+/* PROFILE */
+
 .activity-main {
-  border-radius: 15px 15px;
+  border-radius: 15px;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 
-  padding-top: 20%;
+  padding-top: 2em;
 
   position: relative;
 
@@ -81,12 +154,33 @@ main {
   z-index: 1;
 
   border-radius: 15px 15px 0 0;
-  border: solid var(--da);
+
+  padding: 1.5em;
+  
 }
 
-.activity-inner > * {
-  padding: .5em 0;
+.activity-inner:hover:not(:hover .activity-menu) {
+  background-color: hsl(236, 31%, 44%);
+  cursor: pointer;
 }
+
+
+.activity-inner > h2 {
+    display: flex;
+    align-items: center ;
+
+    justify-content: space-between;
+
+    flex-wrap: nowrap;
+}
+.activity-menu {
+  fill: #BBC0FF;
+}
+.activity-menu:hover {
+  fill: white;
+  cursor: pointer;
+}
+
 
 
 .activity-icon {
@@ -95,7 +189,7 @@ main {
 
   position: absolute;
   
-  left: 63%;
+  left: 70%;
   top: -2%;
   
 }

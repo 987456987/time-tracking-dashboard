@@ -10,6 +10,8 @@ import exerciseImg from "./images/icon-exercise.svg";
 import socialImg from "./images/icon-social.svg";
 import selfCareImg from "./images/icon-self-care.svg";
 
+import ellipsis from "./images/icon-ellipsis.svg"
+
 function App() {
 
   const timeframe = 'weekly'
@@ -23,6 +25,12 @@ function App() {
     socialImg: socialImg,
     selfCareImg: selfCareImg
   };
+
+  const timeMap = {
+    daily: 'Yesterday',
+    weekly: 'Last Week',
+    monthly: 'Last Month'
+  }
   
 
 
@@ -32,23 +40,27 @@ function App() {
         <div className='profile-main'>
           <div className='profile-inner'>
             <img src={profileImg} className='profile-img' />
-            <p>Report For</p>
-            <h1>Jeremy Robson</h1>
+            <p>Report or</p>
+            <h1 className='profile-name'>Jeremy Robson</h1>
           </div>
-          <input name='timeframe' type='radio' id='daily' />
-          <label htmlFor='daily'>Daily</label>
-          <input name='timeframe' type='radio' id='weekly' />
-          <label htmlFor='weekly'>Weekly</label>
-          <input name='timeframe' type='radio' id='monthly' />
-          <label htmlFor='monthly'>Monthly</label>
+          <div className='timeframe'>
+            <input name='timeframe' type='radio' id='daily' />
+            <label htmlFor='daily'>Daily</label>
+            <input name='timeframe' type='radio' id='weekly' />
+            <label htmlFor='weekly'>Weekly</label>
+            <input name='timeframe' type='radio' id='monthly' />
+            <label htmlFor='monthly'>Monthly</label>
+          </div>
         </div>
         {dataArray.map((data) => (
           <div className='activity-main'>
           <img className="activity-icon" src={imageMap[data.image]} alt='' />
             <div className='activity-inner'>
-              <h2>{data.title}</h2>
-              <h3>{data.timeframes[timeframe].current}</h3>
-              <p>{data.timeframes[timeframe].previous}</p>
+              <h2>{data.title} 
+                <svg className='activity-menu' width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" /></svg>
+              </h2>
+              <h3>{data.timeframes[timeframe].current}hrs</h3>
+              <p>- {data.timeframes[timeframe].previous}hrs</p>
             </div>
           </div>
         ))}
