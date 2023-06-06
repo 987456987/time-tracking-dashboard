@@ -45,8 +45,10 @@ function App() {
         <div className='profile-main'>
           <div className='profile-inner'>
             <img src={profileImg} className='profile-img' />
-            <p>Report or</p>
-            <h1 className='profile-name'>Jeremy Robson</h1>
+            <div className='profile-name-container'>
+              <p>Report for</p>
+              <h1 className='profile-name'>Jeremy Robson</h1>
+            </div>
           </div>
           <div className='timeframe'>
             <input
