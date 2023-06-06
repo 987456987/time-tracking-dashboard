@@ -1,6 +1,6 @@
 // import { useState } from 'react'
 import './App.css'
-import './assets'
+import profileImg from './images/image-jeremy.png'
 import jsonData from "./data.json"
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <main>
         <div className='profile-main'>
           <div className='profile-inner'>
-            <img></img>
+            <img src={profileImg} className='profile-imge' />
             <p>Report For</p>
             <h1>Jeremy Robson</h1>
           </div>
