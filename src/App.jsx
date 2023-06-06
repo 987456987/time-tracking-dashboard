@@ -44,7 +44,7 @@ function App() {
       <main>
         <div className='profile-main'>
           <div className='profile-inner'>
-            <img src={profileImg} className='profile-img' />
+            <img src={profileImg} className='profile-img' alt="profile picture"/>
             <div className='profile-name-container'>
               <p>Report for</p>
               <h1 className='profile-name'>Jeremy Robson</h1>
