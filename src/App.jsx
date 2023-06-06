@@ -15,7 +15,7 @@ function App() {
       <main>
         <div className='profile-main'>
           <div className='profile-inner'>
-            <img src={profileImg} className='profile-imge' />
+            <img src={profileImg} className='profile-img' />
             <p>Report For</p>
             <h1>Jeremy Robson</h1>
           </div>
@@ -23,7 +23,7 @@ function App() {
           <label htmlFor='daily'>Daily</label>
           <input name='timeframe' type='radio' id='weekly' />
           <label htmlFor='weekly'>Weekly</label>
-          <input name='timeframe' type='radio' id='daily' />
+          <input name='timeframe' type='radio' id='monthly' />
           <label htmlFor='monthly'>Monthly</label>
         </div>
         {dataArray.map((data) => (
