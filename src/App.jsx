@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import profileImg from './images/image-jeremy.png'
 import jsonData from "./data.json"
@@ -13,8 +13,6 @@ import selfCareImg from "./images/icon-self-care.svg";
 import ellipsis from "./images/icon-ellipsis.svg"
 
 function App() {
-
-  const timeframe = 'weekly'
   const dataArray = Object.values(jsonData);
 
   const imageMap = {
@@ -31,6 +29,13 @@ function App() {
     weekly: 'Last Week',
     monthly: 'Last Month'
   }
+
+
+  const [timeframe, setTimeframe] = useState('weekly');
+
+  const handleTimeframeChange = (event) => {
+    setTimeframe(event.target.value);
+  };
   
 
 
@@ -44,11 +49,34 @@ function App() {
             <h1 className='profile-name'>Jeremy Robson</h1>
           </div>
           <div className='timeframe'>
-            <input name='timeframe' type='radio' id='daily' />
+            <input
+              name='timeframe'
+              type='radio'
+              id='daily'
+              value='daily'
+              checked={timeframe === 'daily'}
+              onChange={handleTimeframeChange}
+            />
             <label htmlFor='daily'>Daily</label>
-            <input name='timeframe' type='radio' id='weekly' />
+
+            <input
+              name='timeframe'
+              type='radio'
+              id='weekly'
+              value='weekly'
+              checked={timeframe === 'weekly'}
+              onChange={handleTimeframeChange}
+            />
             <label htmlFor='weekly'>Weekly</label>
-            <input name='timeframe' type='radio' id='monthly' />
+
+            <input
+              name='timeframe'
+              type='radio'
+              id='monthly'
+              value='monthly'
+              checked={timeframe === 'monthly'}
+              onChange={handleTimeframeChange}
+            />
             <label htmlFor='monthly'>Monthly</label>
           </div>
         </div>
@@ -60,7 +88,7 @@ function App() {
                 <svg className='activity-menu' width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" /></svg>
               </h2>
               <h3>{data.timeframes[timeframe].current}hrs</h3>
-              <p>- {data.timeframes[timeframe].previous}hrs</p>
+              <p>{timeMap[timeframe]} - {data.timeframes[timeframe].previous}hrs</p>
             </div>
           </div>
         ))}
